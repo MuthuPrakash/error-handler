@@ -1,0 +1,65 @@
+{
+  "name": "error-handler",
+  "version": "1.0.7",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:developer": "set NODE_ENV=developer && tsc",
+    "build:dev": "set NODE_ENV=dev && tsc",
+    "start:developer": "set NODE_ENV=developer && tsc && node .",
+    "start:developer:win": "set NODE_ENV=developer&& tsc && node .",
+    "start:dev": "set NODE_ENV=dev && tsc && node .",
+    "test": "node ./node_modules/jest/bin/jest.js",
+    "test-ci": "node ./node_modules/jest/bin/jest.js --ci --reporters=default --reporters=jest-junit --coverage --coverageDirectory=test-results/coverage",
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "debug": "node --nolazy --inspect-brk=3100 dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {},
+  "jest": {
+    "suiteName": "jest tests",
+    "testPathIgnorePatterns": [
+      "<rootDir>/jest/",
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{ts,jsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/jest/"
+    ]
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": ".",
+    "outputName": "./test-results/junit.xml"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^12.12.6",
+    "@types/sinon": "^7.0.13",
+    "cross-env": "^5.2.0",
+    "cucumber": "^5.1.0",
+    "jest": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "node-mocks-http": "^1.8.0",
+    "path": "^0.12.7",
+    "raw-loader": "^2.0.0",
+    "sinon": "^7.5.0",
+    "source-map-support": "^0.5.6",
+    "ts-jest": "^25.2.1",
+    "ts-loader": "^6.1.2",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.5.3",
+    "webpack": "^4.42.0",
+    "winston": "^3.2.1"
+  }
+}
